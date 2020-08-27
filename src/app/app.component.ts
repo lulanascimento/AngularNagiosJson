@@ -40,8 +40,12 @@ export class AppComponent {
           if (data.data.servicelist.hasOwnProperty(key))
             this.items.push(data.data.servicelist);
         
-         for (var chave in data.data.servicelist)
-          console.log(chave)
+         for (var chaveiro in data.data.servicelist)
+          console.log(data.data.servicelist[chaveiro])
+           
+         for(var chaveiro in data.data.servicelist)
+          console.log(chaveiro)
+           
 
         })
     }                                                                                                                                                                                                                                 
