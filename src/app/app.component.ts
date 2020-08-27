@@ -39,9 +39,9 @@ export class AppComponent {
          for (let key in data.data.servicelist)
           if (data.data.servicelist.hasOwnProperty(key))
             this.items.push(data.data.servicelist);
-        
+        // Jeito Correto
          for (var chaveiro in data.data.servicelist)
-          console.log(data.data.servicelist[chaveiro])
+          console.log(chaveiro, data.data.servicelist[chaveiro])
            
          for(var chaveiro in data.data.servicelist)
           console.log(chaveiro)
