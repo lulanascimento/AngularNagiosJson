@@ -1,6 +1,44 @@
 <p>
-  Learn more from Jami at
-  <a href="https://jamibot.com" target="_blank">jamibot.com</a>.
+  Teste de Leitura para json do Nagios
+  
 </p>
 
-<div *ngFor="let item of items">{{item}}</div>
+
+<!--
+<p> consultas1</p>         
+<div class="myDiv">
+  <ul *ngFor="let item of items; index as i">
+    <li [attr.data-index]="i">{{item | json}}</li>
+  </ul>
+
+</div>
+-->
+<!--
+<p> consultas2</p>  
+<div  class="myDiv2">{{totalAngularPackages| json}}</div>
+
+
+<p> consultas3</p>  
+<div *ngFor="let item of items | keyvalue">
+  Key: <b>{{item.key}}</b> and Value: <b>{{item.value}}</b>
+</div>
+
+
+<p> consultas4</p>  
+<div  class="myDiv2">{{totalAngularPackages | keyvalue}}</div>
+-->
+<p> consultas5</p>  
+<div class="myDiv3" *ngFor="let item of totalAngularPackages | keyvalue">
+  {{item.key}}
+  <div class="myDiv" *ngFor="let it of item.value | keyvalue">
+    {{it.key}}:{{it.value}}
+  </div>
+</div>
+
+
+
+<p> consultas6</p>
+<div *ngFor="let dado of dados | keyvalue">
+  {{dado.value | json}}
+</div>
+

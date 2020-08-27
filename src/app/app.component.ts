@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { HttpHeaders } from '@angular/common/http';
+import { ValueTransformer } from '@angular/compiler/src/util';
+import { __values } from 'tslib';
 
 @Component({
   selector: 'app-root',
@@ -7,16 +10,39 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  url = `http://echo.jsontest.com/key/value/one/two`;
+  url = `https://nagios.nutricash.com.br/Colaboradores1.json`;
   items = [];
+  dados = [];
+  listas = [];
+  totalAngularPackages;
 
-  constructor(private http: HttpClient) {
-    this.http.get(this.url).toPromise().then(data => {
-      console.log(data);
-      
-      for (let key in data)
-        if (data.hasOwnProperty(key))
-          this.items.push(data[key]);
-    });
-  }
-}
+  constructor(private http: HttpClient) { }
+
+    ngOnInit() {      
+        // Simple GET request with response type <any>
+        const headers = { 'Authorization': 'Basic bmFnaW9zYWRtaW46c2VuaGE=', 'content-type': 'application/json' }
+        this.http.get('http://nagios.nutricash.com.br/nagios/cgi-bin/statusjson.cgi?query=servicelist', { headers }).subscribe(data => {
+         // this.totalAngularPackages = data;
+          this.totalAngularPackages = data.data.servicelist;
+         // console.log(data.data.servicelist);
+         // console.log(data);
+         console.log(data.data.servicelist);
+         console.log("Resultado: " + data.result.query);
+         this.dados.push(data.result.query);
+         console.log(this.dados);
+        
+
+         
+         // Bloco novo
+        
+         //FIM BLOCO NOVO
+         for (let key in data.data.servicelist)
+          if (data.data.servicelist.hasOwnProperty(key))
+            this.items.push(data.data.servicelist);
+        
+         for (var chave in data.data.servicelist)
+          console.log(chave)
+
+        })
+    }                                                                                                                                                                                                                                 
+}               
