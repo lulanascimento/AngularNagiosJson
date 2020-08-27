@@ -1,0 +1,31 @@
+import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { HttpHeaders } from '@angular/common/http';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
+})
+export class AppComponent {
+  url = `https://nagios.nutricash.com.br/Colaboradores1.json`;
+  items = [];
+
+  constructor(private http: HttpClient) {
+    this.http.get(this.url).toPromise().then(data => {
+      console.log(data);
+      
+      for (let key in data)
+        if (data.hasOwnProperty(key))
+          this.items.push(data[key]);
+    });
+  }
+}
+http://nagiosadmin:senha@nagios.nutricash.com.br/nagios/cgi-bin/statusjson.cgi?query=servicelist
+
+<ul>
+  <li *ngFor="let product of products">
+      <h2>{{product.name}} / ${{product.price}}</h2>
+      <p> {{product.description}} </p>
+  </li>
+  </ul>
