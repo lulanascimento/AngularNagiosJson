@@ -27,14 +27,40 @@
 <p> consultas4</p>  
 <div  class="myDiv2">{{totalAngularPackages | keyvalue}}</div>
 -->
+<!--
 <p> consultas5</p>  
 <div class="myDiv3" *ngFor="let item of totalAngularPackages | keyvalue">
   {{item.key}}
   <div class="myDiv" *ngFor="let it of item.value | keyvalue">
     {{it.key}}:{{it.value}}
+    
   </div>
+  
+</div>
+-->
+<!--
+<p> consultasTeste</p>  
+<div class="myDiv3" *ngFor="let item of totalAngularPackages | keyvalue">
+  {{item.key}}
+  <div class="myDiv" *ngFor="let it of item.value | keyvalue">
+    {{it.value}}
+    
+  </div>
+  
 </div>
 
+-->
+
+<p> consultasTeste</p>  
+<div class="myDiv3" *ngFor="let item of totalAngularPackages | keyvalue">
+  {{item.key}}
+  <div class="myDiv" *ngFor="let it of item.value | keyvalue">
+    <div *ngIf="it.value===4"> Funcionou </div>
+    {{it.value}}
+    
+  </div>
+  
+</div>
 
 
 <p> consultas6</p>
