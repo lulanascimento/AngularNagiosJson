@@ -15,6 +15,7 @@ export class AppComponent {
   dados = [];
   listas = [];
   totalAngularPackages;
+  
 
   constructor(private http: HttpClient) { }
 
@@ -41,11 +42,18 @@ export class AppComponent {
             this.items.push(data.data.servicelist);
         // Jeito Correto
          for (var chaveiro in data.data.servicelist)
-          console.log(chaveiro, data.data.servicelist[chaveiro])
-           
-         for(var chaveiro in data.data.servicelist)
-          console.log(chaveiro)
-           
+          console.log( data.data.servicelist[chaveiro])
+          console.log("chaveiro: ")
+        
+        // for(var chaveiro in data.data.servicelist)
+         // console.log(chaveiro)
+         const array1 = ['a', 'b', 'c'];
+         console.log(array1)
+         array1.forEach(element => console.log(element))
+         const array2 = this.dados[0]
+         console.log(array2)
+         
+         
 
         })
     }                                                                                                                                                                                                                                 
